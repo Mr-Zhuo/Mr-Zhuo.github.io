@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>信息提交</title>
+	</head>
+	<body>
+		<form action="target.php" method="get">
+			<!-- 
+					只建立了一个空白表单元素 
+				提供了一个label标签来修饰表单项提示文字，
+				其中for属性可以将表单label设置为提示文字
+			
+			-->
+			<!-- 文本框 -->
+			<!-- 
+				name表示提交服务器内容的类型 
+			-->
+			<fieldset id="">
+				<legend>用户信息</legend>
+				<!-- 文本框 -->
+				<!-- <label for="id">练习：</label><input id="id" type="text" name="userid" value="用户名" /> -->
+				<!-- <br /><br /> -->
+				<!-- 密码框 -->
+				联系方式：<input type="password" name="password" />	
+				<br /><br />
+			</fieldset>
+
+			<!-- 
+				单选按钮 value必须有，不然服务器不能区分
+					-指定默认选中选项，添加checked属性
+			-->
+			性别：
+			<input type="radio" name="radio" value="male" id="male" /><label for="male">女</label>
+			<input type="radio" name="radio" value="female" checked="checked"  id="female" /><label for="female">男</label>
+			<br /><br />
+			
+			<!-- 多选框 用name属性来分组-->
+			服务选择：
+			<label for="1st">上门维修</label><input id="1st" type="checkbox" name="hobby" value="1" />
+			<label for="2nd">上门维修</label><input id="2nd" type="checkbox" name="hobby" value="2" />
+			<label for="3rd">上门维修</label><input id="3rd" type="checkbox" name="hobby" value="3" />
+			<input type="checkbox" name="hobby" value="4" />
+			<input type="checkbox" name="hobby" value="5" />
+			<br /><br />
+			
+			<!-- name属性在select标签中设置，value在option中设置 在select中可以使用optgroup分组-->
+			维修电器类型：
+			<select name="type">
+				<optgroup label="大家电">
+					<option value="1">冰箱</option>
+					<option value="2">空调</option>
+					<option value="3">洗衣机</option>
+				</optgroup>
+				<optgroup label="小家电">
+					<option value="1">冰箱</option>
+					<option value="2">空调</option>
+					<option value="3">洗衣机</option>
+				</optgroup>
+			</select>
+			<br /><br />
+			
+			<!-- 文本域 -->
+			问题描述：<br />
+			<textarea style="width: 12.5rem;height: 12.5rem;">
+				
+			</textarea>
+			<br />
+			
+			<!-- 提交按钮 -->
+			<!-- 重置按钮 -->
+			<input type="submit" value="提交" />
+			<input type="reset" / value="重置">
+			<input type="button" value="按钮"/>
+			<br />
+			<!-- 使用更加灵活 方便添加样式 -->
+			<button type="submit">提交</button>
+			<button type="reset">重置</button>
+			<button type="button">按钮</button>
+		</form>
+	</body>
+</html>
