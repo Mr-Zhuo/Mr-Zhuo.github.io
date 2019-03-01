@@ -64,7 +64,7 @@
 			.homelink::before{
 				
 				background-image: url(../img/home.png);
-				background-position: -16px,32px;
+				background-position: 0px,32px;
 			}
 			.navBar a{
 				display: block;
