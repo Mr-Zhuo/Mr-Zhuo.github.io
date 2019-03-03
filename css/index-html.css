@@ -1,29 +1,26 @@
 /* <style type="text/css"> */
 			.body{
 				background-color: rgb(240, 240,240);
+				height: 3000px;
 			}
-			/* 测试样式,后续取消 */
-
 			/* head */
 			.head{
-				position: fixed;
-				top: 0;
-				width: 100%;
-				background-color: rgb(210, 34, 34);
-				/* overflow:hidden; 此方法解决高度塌陷问题存在浏览器兼容问题*/
-			/* 				
-				背景图片相关属性 
-				background-image: url(img/logo1.png);
-				background-repeat: no-repeat;
-				/* 如果只写一个值默认第二支为center，还可以指定百分数和坐标偏移量单位：px 
-				background-position: bottom center;
-				/* background-attachment: fixed; 图片不随页面滚动且会改变图片相对定位原点
-				background 可以整合在一起写，没有顺序要求，没有写的使用默认值
-			*/	
+				height: 35px;
 			}
-			/* 通过伪类向父元素最后添加空白块元素清除高度塌陷问题 IE6及以下不支持*/
-			.clearfix:after .clearfix:before{
-				content: " ";
+			.clear{
+				width: 100%;
+				/* height: 35px; */
+				background-color: rgb(210, 34, 34);
+				position: fixed;
+				z-index: 999;
+			}
+			/* 通过伪类after向父元素最后添加空白块元素清除高度塌陷问题 IE6及以下不支持
+			before伪类解决父子元素外边距重叠问题,子元素的外边距会传递给父元素
+			.clearfix::before
+			*/
+			.clearfix::after
+			{
+				content: "";
 				display: table;
 				clear: both;
 			}
@@ -61,13 +58,14 @@
 				/* width: 100px; 不设置宽度后设置padding值不会改变元素可见框大小*/
 				margin: 0 20px;/* 设置外边距 */
 			}
-			.homelink::before{
+			/* .homelink::before{
 				
 				background-image: url(../img/home.png);
-				background-position: 0px,32px;
-			}
+				background-position: -32px -32px;
+			} */
 			.navBar a{
 				display: block;
+				width: 100px;
 				color: white;
 				font: 16px;
 				line-height: 35px;
@@ -91,50 +89,93 @@
 			
 			
 			/* content 区 */
-			.img1{
-				margin: 20px auto;
-				background-color: red;
+			.content{
+				background-color: yellowgreen;
+				margin-top: 1px;
 			}
-			.img1 img{
+			.leftad,
+			.rightinfo,
+			.banner{
+				
+				position: relative;
+			}
+			.leftad{
+				width: 300px;
+				height: 300px;
+				background-color: purple;
+				float: left;
+			}
+			.banner{
+				width: 300px;
+				height: 300px;
+				background-color: red;
+				margin: 0 auto;
+			}
+			.rightinfo{
+				width: 300px;
+				height: 300px;
+				background-color: pink;
+				float: right;
+			}
+			/* banner动画开始 
+			
+			.banner img{
 				width: 400px;
 				height: 200px;
 				animation: lunbo 5s ease-in-out  infinite normal;
 			}
-			@keyframes lunbo{
+			
+
+			 @keyframes lunbo{
 				0% {opacity: 0;}
 				50% {opacity: 1;}
 				100% {opacity: 0;}
 			}
-			.img1 img:hover{
+			.banner:hover{
 				animation-play-state: paused;
 			}
+
+			 banner动画结束 */
+
 			.PicNum li{
 				/* float:right; */
 				list-style: none;
 				margin: 0 20px 0 0;
 			}
-			
+
+			/* footer */
+			.bottom{
+				height: 100px;
+				background-color: aquamarine;
+			}
+			.bottom li{
+				float: left;
+				list-style: none;
+			}
 			/* 全局固定区 */
 			.about{
 				width: 50px;
 				height: 50px;
-				background-color: skyblue;
-				transition: height 1s;
+				border: 1px black solid;
+				border-radius: 5px;
+				background-color: yellowgreen;
+				text-align: center;
+				line-height: 50px;
 				position: fixed;
 				bottom: 50px;
 				right: 20px;
 				overflow: hidden;
-			}
-			.box1{
-				width: 50px;
-				height: 50px;
-				border: 1px black solid;
-				background-color: yellowgreen;
-				text-align: center;
-				line-height: 50px;
+				/* transition: height 1s; */
 			}
 			.about:hover{
-				height: 150px;
 				background-color: skyblue;
 			}
+			.about a{
+				font:16px/50px "微软雅黑";
+				text-decoration: none;
+			}
+			/* .about:hover{
+				height: 150px;
+				background-color: skyblue;
+			} */
 /* 		</style> */
