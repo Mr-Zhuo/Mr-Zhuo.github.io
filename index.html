@@ -1,8 +1,193 @@
-<doctype html>
-<html lang='en'>
+<!DOCTYPE html>
+<html lang='zh-cn'>
 <head>
-<title>目录</title>
+	<meta charset="utf-8">
+	<title>index page</title>
+	<link href="https://cdn.bootcss.com/minireset.css/0.0.2/minireset.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/font-awesome/5.8.1/css/all.min.css" rel="stylesheet">
+	<style type="text/css">
+		li{
+			text-decoration: none;
+			list-style: none;
+		}
+		.nav{
+			width: 100%;
+			position: fixed;
+			top: 0;
+			left: 0;
+			border:1px solid #eaecef;
+			display: block;
+		}
+		#title{
+			position: absolute;
+			top: 0;
+			left: 110px;
+			width: 100px;
+			padding: 16px 20px;
+		}
+		.listbtn{
+			display: block;
+			width: 100px;
+			color: black;
+			padding: 16px 20px;
+			text-decoration: none;
+		}
+		#sidebar{
+			position: fixed;
+			margin-top: 53px;
+			width: 300px;
+			border-left: 1px solid #eaecef;
+			transition: 0.3s transform;
+			display: flex;
+		}
+		
+		.sidebarOn{
+			transform: translate(0,0);
+			
+		}
+		.sidebarOff{
+			transform: translate(-100%,0); 
+		}
+		.menu{
+			
+			overflow: hidden;
+		}
+		.item{
+			border-top: 1px solid #eaecef;
+			overflow: hidden;
+		}
+		.btn{
+			display: block;
+			padding: 16px 20px;
+			color: black;
+			text-decoration: none;
+			position: relative;/* 让下面的伪类子元素不脱离父元素*/
+		}
+		/* .item>a::before{
+			content: "";
+			position: absolute;
+			width: 14px;
+			height: 14px;
+			background: black;
+			left: 20px;
+			bottom: -7px;
+			transform: rotate(45deg);
+		} */
+		.btn i{
+			margin-right: 14px;
+		}
+		.smenu{
+			overflow:hidden;
+			transition: 0.3s max-height;
+			max-height: 0;
+		}
+		.smenu>a{
+			display: block;
+			padding:16px 26px;
+			color: black;
+			font-size: 14px;
+			margin:4px 0;
+			position: relative;
+			text-decoration: none;
+		}
+		.smenu a:before{
+			content: "";
+			position: absolute;
+			width: 6px;
+			height: 100%;
+			background: black;
+			left: 0;
+			top: 0;
+			transition: 0.3s;
+			opacity: 0;
+		}
+		.smenu a:hover:before{
+			opacity: 1;
+		}
+		 .item:target .smenu{
+			max-height: 10em;
+		}
+		#main-content{
+			padding: 100px 0 0 300px;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			let clickStatus = false;
+			let status = false;
+			let listBtn  = document.getElementById('sidebarBtn');
+			let sidebar = document.getElementById('sidebar');
+			// let smenubtn = document.getElementsByClassName('btn');
+			// let smenu = document.getElementsByClassName('smenu');
+			// for(let i=0;i<smenubtn.length;i++){
+			// 	smenubtn[i].index = i;
+			// 	smenubtn[i].addEventListener('click',function(){
+			// 		if(status){
+			// 			smenu[this.index].setAttribute('class','off btn')
+			// 		}else{
+			// 			smenu[this.index].setAttribute('class','show btn')
+			// 		}
+			// 		status =!status;
+			// 	})
+			// }
+			listBtn.addEventListener('click',function(){
+				if(clickStatus){
+					sidebar.setAttribute('class','sidebarOff')
+				}else{
+					sidebar.setAttribute('class','sidebarOn')
+				}
+				clickStatus=!clickStatus;
+			})
+		}
+	</script>
 </head>
 <body>
+	<header>
+		<div class="nav">
+			<div class="sbicon">
+				<a href='javascript:' class="listbtn" id="sidebarBtn"><i class="fa fa-bars" aria-hidden="true"></i>
+				LIST</a>
+			</div>
+			<div id="title">
+					<h2>CurrentTitle</h2>
+			</div>
+			
+		</div>
+	</header>
+	<div class="fixedclear"></div>
+	<aside class="sidebarOff" id="sidebar">
+			<div class="menu">
+				<li class="item" id="a">
+					<a class="btn" href="#a"><i class="fas fa-user-circle"></i>HTML Practice</a>
+					<div class="smenu">
+						<a href="#H-first">Hello World !</a>
+						<a href="#">Picture</a>
+					</div>
+				</li>
+		
+				<li class="item" id="b">
+					<a class="btn" href="#b"><i class="fas fa-user-circle"></i>Javascript Test</a>
+					<div class="smenu" id="profile">
+						<a href="#">Posts</a>
+						<a href="#">Picture</a>
+					</div>
+				</li>
+		
+				<li class="item" id="c">
+					<a class="btn" href="#c"><i class="fas fa-user-circle"></i>NodeJS</a>
+					<div class="smenu" id="logout">
+						<a href="#">Posts</a>
+						<a href="#">Picture</a>
+					</div>
+				</li>
+			</div>
+	</aside>
+	<main id="main-content">
+		<div id="H-first">
+			<h2>
+				
+			</h2>
+		</div>
+	</main>
 </body>
 </html>
